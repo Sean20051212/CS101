@@ -2,19 +2,26 @@
 
 int main()
 {
-    float PI = 0 ;
+    double PI = 4.0 ;
     int k = 1 ;
-    float c = 1.0;
-    for (float i = 1; i <= 100000;i++) {
-        if (k % 2 == 0) {
-            PI = PI - (4.0f/c);
+    long IPI = 0;
+    int x = 0;
+    for (int i = 3; i <10000000;i+=2) {
+        if (k == 0) {
+            PI += (4.0/i);
+            k++;
         }
         else {
-            PI = PI + (4.0f/c);
+            PI -= (4.0/i);
+            k--;
         }
-        c = c+2;
-        k++;
+        
+        IPI = PI * 100000;
+        if (IPI == 314159) {
+            x = i ;
+            break;
+        }
     }
-    printf("%.5f",PI);
+    printf("%d %.5f",x,PI);
     return 0;
 }
